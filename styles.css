@@ -1,0 +1,117 @@
+/* Custom CSS for the devotional app */
+
+:root {
+  --primary-color: #0101a8;
+  --gold-color: #daa520;
+  --text-muted: #6c757d;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg-gradient-to-t {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.text-white-50 {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.active-tab {
+  color: var(--gold-color) !important;
+  border-color: var(--gold-color) !important;
+}
+
+.solution-card,
+.book-card {
+  min-width: 280px;
+  transition: transform 0.3s ease;
+}
+
+.solution-card:hover,
+.book-card:hover {
+  transform: scale(1.05);
+}
+
+.book-card {
+  min-width: 160px;
+}
+
+.book-card img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.solution-card img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Hide scrollbars but keep functionality */
+.overflow-auto::-webkit-scrollbar {
+  display: none;
+}
+
+.overflow-auto {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Rounded buttons */
+.btn {
+  border-radius: 0.75rem !important;
+}
+
+.rounded-pill {
+  border-radius: 50rem !important;
+}
+
+.rounded-3 {
+  border-radius: 0.75rem !important;
+}
+
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+/* Gold button styling */
+.btn-gold {
+  background-color: var(--gold-color);
+  border-color: var(--gold-color);
+  color: black;
+  font-weight: 500;
+}
+
+.btn-gold:hover {
+  background-color: #b8941c;
+  border-color: #b8941c;
+  color: black;
+}
+
+/* Video container */
+video {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .display-5 {
+    font-size: 2rem;
+  }
+
+  .solution-card,
+  .book-card {
+    min-width: 250px;
+  }
+}
