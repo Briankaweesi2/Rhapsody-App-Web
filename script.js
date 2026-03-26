@@ -18,6 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Populate books
   populateBooks()
 
+  // Populate audio
+  populateAudio()
+
+  // Populate library
+  populateLibrary()
+
+  // Populate testimonies
+  populateTestimonies()
+
   // Setup event listeners
   setupEventListeners()
 })
@@ -244,6 +253,184 @@ function populateBooks() {
     .join("")
 }
 
+function populateAudio() {
+  const audioItems = [
+    {
+      id: 1,
+      title: "SENT AS A WITNESS",
+      date: "2026-03-01",
+      dayOfWeek: "Sun 1st, March",
+      image: "/placeholder.svg?height=60&width=60&text=Audio1",
+    },
+    {
+      id: 2,
+      title: "THE OUTWORKING OF THE WORD IN YOU",
+      date: "2026-03-02",
+      dayOfWeek: "Mon 2nd, March",
+      image: "/placeholder.svg?height=60&width=60&text=Audio2",
+    },
+    {
+      id: 3,
+      title: "GOD'S ALWAYS WATCHING",
+      date: "2026-03-03",
+      dayOfWeek: "Tue 3rd, March",
+      image: "/placeholder.svg?height=60&width=60&text=Audio3",
+    },
+    {
+      id: 4,
+      title: "WE DON'T CLAP TO PRAISE GOD",
+      date: "2026-03-04",
+      dayOfWeek: "Wed 4th, March",
+      image: "/placeholder.svg?height=60&width=60&text=Audio4",
+    },
+    {
+      id: 5,
+      title: "DON'T SPEAK AGAINST GOD",
+      date: "2026-03-05",
+      dayOfWeek: "Thu 5th, March",
+      image: "/placeholder.svg?height=60&width=60&text=Audio5",
+    },
+    {
+      id: 6,
+      title: "RIGHTEOUSNESS CONSCIOUSNESS",
+      date: "2026-03-06",
+      dayOfWeek: "Fri 6th, March",
+      image: "/placeholder.svg?height=60&width=60&text=Audio6",
+    },
+  ]
+
+  const container = document.getElementById("audio-container")
+  container.innerHTML = audioItems
+    .map(
+      (item) => `
+        <div class="col-md-6">
+            <div class="audio-item">
+                <img src="${item.image}" alt="${item.title}" class="audio-thumbnail">
+                <div class="flex-grow-1">
+                    <p class="small text-muted mb-1">${item.date}</p>
+                    <h5 class="small fw-semibold mb-1">${item.title}</h5>
+                    <p class="small text-muted mb-0">${item.dayOfWeek}</p>
+                </div>
+                <button class="play-btn" onclick="playAudio('${item.title}')">
+                    <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+        </div>
+    `,
+    )
+    .join("")
+
+  lucide.createIcons()
+}
+
+function populateLibrary() {
+  const libraryItems = [
+    {
+      id: 1,
+      title: "Now That You Are Born Again",
+      author: "By Pastor Chris Oyakhilome D.Sc., D.D.",
+      image: "/images/power-of-tongues.webp",
+      price: "$10",
+    },
+  ]
+
+  const container = document.getElementById("library-container")
+  container.innerHTML = libraryItems
+    .map(
+      (item) => `
+        <div class="col-12">
+            <div class="library-item">
+                <img src="${item.image}" alt="${item.title}" class="library-thumbnail">
+                <div class="library-content">
+                    <h5 class="library-title">${item.title}</h5>
+                    <p class="library-author">${item.author}</p>
+                    <p class="fw-bold mb-0">${item.price}</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="library-action" onclick="downloadItem('${item.id}')">
+                        <i data-lucide="download" class="me-1" style="width: 14px; height: 14px;"></i>
+                        Download
+                    </button>
+                    <button class="library-action" onclick="shareItem('${item.id}')">
+                        <i data-lucide="arrow-up-right" class="me-1" style="width: 14px; height: 14px;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `,
+    )
+    .join("")
+
+  lucide.createIcons()
+}
+
+function populateTestimonies() {
+  const testimonies = [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      avatar: "/placeholder.svg?height=45&width=45&text=Sarah",
+      date: "2 days ago",
+      content: "The daily devotionals have transformed my spiritual journey. I feel more connected to my faith than ever before. Truly grateful for this platform!",
+      likes: 245,
+      comments: 18,
+    },
+    {
+      id: 2,
+      name: "Michael Chen",
+      avatar: "/placeholder.svg?height=45&width=45&text=Michael",
+      date: "4 days ago",
+      content: "Amazing community here. Found answers to questions I've been asking for years. Highly recommend to anyone seeking spiritual growth and guidance.",
+      likes: 192,
+      comments: 24,
+    },
+    {
+      id: 3,
+      name: "Amara Williams",
+      avatar: "/placeholder.svg?height=45&width=45&text=Amara",
+      date: "1 week ago",
+      content: "The audio teachings are incredible. I listen during my commute and it keeps me grounded throughout the day. Life-changing content!",
+      likes: 318,
+      comments: 31,
+    },
+  ]
+
+  const container = document.getElementById("testimonies-container")
+  container.innerHTML = testimonies
+    .map(
+      (testimony) => `
+        <div class="col-md-6 col-lg-4">
+            <div class="testimony-card">
+                <div class="testimony-header">
+                    <img src="${testimony.avatar}" alt="${testimony.name}" class="testimony-avatar">
+                    <div class="testimony-meta">
+                        <div class="testimony-name">${testimony.name}</div>
+                        <div class="testimony-date">${testimony.date}</div>
+                    </div>
+                </div>
+                <p class="testimony-content">${testimony.content}</p>
+                <div class="testimony-actions">
+                    <button class="testimony-action" onclick="likeTestimony('${testimony.id}')">
+                        <i data-lucide="heart" style="width: 16px; height: 16px;"></i>
+                        <span class="ms-1">${testimony.likes}</span>
+                    </button>
+                    <button class="testimony-action" onclick="commentTestimony('${testimony.id}')">
+                        <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
+                        <span class="ms-1">${testimony.comments}</span>
+                    </button>
+                    <button class="testimony-action" onclick="shareTestimony('${testimony.id}')">
+                        <i data-lucide="share-2" style="width: 16px; height: 16px;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `,
+    )
+    .join("")
+
+  lucide.createIcons()
+}
+
 function setupEventListeners() {
   // Mute toggle for video
   const muteToggle = document.getElementById("mute-toggle")
@@ -276,4 +463,49 @@ function setupEventListeners() {
       this.classList.add("text-warning", "border-bottom", "border-warning", "border-3")
     })
   })
+}
+
+// Utility functions
+function playAudio(title) {
+  console.log("Playing: " + title)
+  alert("Now playing: " + title)
+}
+
+function downloadItem(id) {
+  console.log("Downloading item: " + id)
+  alert("Item download started")
+}
+
+function shareItem(id) {
+  if (navigator.share) {
+    navigator.share({
+      title: "Check out this resource!",
+      text: "I found this amazing resource on Rhapsody.",
+      url: window.location.href,
+    })
+  } else {
+    alert("Share this item!")
+  }
+}
+
+function likeTestimony(id) {
+  console.log("Liked testimony: " + id)
+  alert("Thank you for your support!")
+}
+
+function commentTestimony(id) {
+  console.log("Commenting on testimony: " + id)
+  alert("Comment feature coming soon!")
+}
+
+function shareTestimony(id) {
+  if (navigator.share) {
+    navigator.share({
+      title: "Check out this testimony!",
+      text: "I found this inspiring testimony on Rhapsody.",
+      url: window.location.href,
+    })
+  } else {
+    alert("Share this testimony!")
+  }
 }

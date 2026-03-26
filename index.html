@@ -226,6 +226,79 @@
                         </div>
                     </section>
 
+                    <!-- Rhapsody Audio Section -->
+                    <section class="bg-white rounded-4 p-4 p-md-5 border">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="h3 fw-semibold d-flex align-items-center gap-3 mb-0">
+                                <i data-lucide="music"></i>
+                                Rhapsody Audio
+                            </h3>
+                            <button class="btn btn-outline-secondary rounded-3">
+                                See all
+                                <i data-lucide="chevron-right" class="ms-1"></i>
+                            </button>
+                        </div>
+                        <div class="row g-3" id="audio-container">
+                            <!-- Audio items will be populated by JavaScript -->
+                        </div>
+                    </section>
+
+                    <!-- Library Section -->
+                    <section class="bg-light rounded-4 p-4 p-md-5 border">
+                        <h3 class="h3 fw-semibold mb-4">My Library</h3>
+                        
+                        <!-- Library Tabs -->
+                        <ul class="nav nav-pills mb-4 border-bottom" id="library-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active fw-semibold text-dark rounded-0" id="all-purchases-tab" data-bs-toggle="tab" data-bs-target="#all-purchases" type="button" role="tab">
+                                    All Purchases
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link fw-semibold text-muted rounded-0" id="downloaded-tab" data-bs-toggle="tab" data-bs-target="#downloaded" type="button" role="tab">
+                                    Downloaded
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Library Content -->
+                        <div class="tab-content" id="library-tab-content">
+                            <div class="tab-pane fade show active" id="all-purchases" role="tabpanel">
+                                <p class="text-muted small mb-4">Showing 1 items</p>
+                                <div id="library-container" class="row g-3">
+                                    <!-- Library items will be populated by JavaScript -->
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="downloaded" role="tabpanel">
+                                <p class="text-muted">No downloaded items yet.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Community Section -->
+                    <section class="bg-white rounded-4 p-4 p-md-5 border">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="h3 fw-semibold d-flex align-items-center gap-3 mb-0">
+                                <i data-lucide="users"></i>
+                                Community Testimonies
+                            </h3>
+                            <button class="btn btn-outline-secondary rounded-3">See all</button>
+                        </div>
+                        <div class="row g-4" id="testimonies-container">
+                            <!-- Testimonies will be populated by JavaScript -->
+                        </div>
+                    </section>
+
+                    <!-- CTA Section -->
+                    <section class="bg-primary rounded-4 p-5 text-white text-center">
+                        <h2 class="h2 fw-bold mb-3">Join Our Growing Community</h2>
+                        <p class="lead mb-4">Get access to exclusive content and connect with millions of believers worldwide.</p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <button class="btn btn-gold fw-semibold rounded-pill px-5 py-3">Subscribe Now</button>
+                            <button class="btn btn-outline-light fw-semibold rounded-pill px-5 py-3">Learn More</button>
+                        </div>
+                    </section>
+
                 </div>
             </div>
         </div>
