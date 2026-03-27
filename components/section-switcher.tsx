@@ -11,20 +11,17 @@ interface SectionSwitcherProps {
   onSectionChange?: (section: Section) => void
 }
 
-const sectionConfig: Record<Section, { label: string; color: string; icon: string }> = {
+const sectionConfig: Record<Section, { label: string; icon: string }> = {
   adult: {
     label: "Adults Rhapsody",
-    color: "bg-blue-100 dark:bg-blue-900",
     icon: "👨‍👩‍👧‍👦",
   },
   teens: {
     label: "Teens Rhapsody",
-    color: "bg-purple-100 dark:bg-purple-900",
     icon: "👦",
   },
   kids: {
     label: "Kids Rhapsody",
-    color: "bg-cyan-100 dark:bg-cyan-900",
     icon: "🧒",
   },
 }
@@ -46,11 +43,11 @@ export function SectionSwitcher({ currentSection = "adult", onSectionChange }: S
         variant="ghost"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 hover:bg-accent rounded-lg transition-colors"
+        className="flex items-center gap-2 px-4 py-2 hover:bg-accent hover:bg-[#DAA520]/10 rounded-lg transition-colors"
       >
-        <span className="text-sm font-medium text-foreground">{current.label}</span>
+        <span className="text-lg lg:text-xl font-bold text-foreground">{current.label}</span>
         <ChevronDown
-          className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${
+          className={`w-5 h-5 text-[#DAA520] transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -85,7 +82,7 @@ export function SectionSwitcher({ currentSection = "adult", onSectionChange }: S
                   onClick={() => handleSectionChange(section)}
                   className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center gap-3 border-2 ${
                     isActive
-                      ? `border-[#DAA520] ${config.color} bg-opacity-40`
+                      ? `border-[#DAA520] bg-[#DAA520]/10`
                       : "border-transparent hover:bg-accent"
                   }`}
                 >

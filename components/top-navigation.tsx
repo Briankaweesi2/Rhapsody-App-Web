@@ -12,7 +12,6 @@ import {
   X,
   Search,
   ShoppingCart,
-  RefreshCw,
   Home,
   Lightbulb,
   Store,
@@ -61,9 +60,6 @@ export function TopNavigation({ currentPage = "home" }: TopNavigationProps) {
                 />
               </div>
               <h1 className="text-lg font-bold text-foreground sm:hidden">Rhapsody</h1>
-              <Button variant="ghost" size="sm" className="p-1 hidden sm:flex hover:bg-accent">
-                <RefreshCw className="w-4 h-4 lg:w-5 lg:h-5" />
-              </Button>
             </div>
           </div>
 
