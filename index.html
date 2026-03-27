@@ -3,237 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adult's Rhapsody - Devotional App</title>
-    <meta name="description" content="Find your faith with God on the journey to heaven">
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <!-- HLS.js for video streaming -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    
-    <!-- Custom CSS -->
+    <meta name="description" content="Rhapsody - Your daily devotional and spiritual content platform">
+    <title>Rhapsody - Daily Devotionals & Spiritual Content</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen bg-light">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand fw-bold fs-4" href="#">Adult's Rhapsody</a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#devotions">Devotions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#audio">Audio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#books">Books</a>
-                    </li>
-                </ul>
-                
-                <div class="d-flex align-items-center gap-3">
-                    <button class="btn btn-outline-secondary rounded-pill">
-                        <i data-lucide="search" class="me-1"></i>
-                        Search
-                    </button>
-                    <button class="btn btn-outline-secondary rounded-pill">
-                        <i data-lucide="user" class="me-1"></i>
-                        Profile
-                    </button>
-                </div>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <h1>Rhapsody</h1>
             </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#solutions" class="nav-link" data-page="solutions">Solutions</a></li>
+                <li><a href="#store" class="nav-link" data-page="store">Store</a></li>
+                <li><a href="#library" class="nav-link" data-page="library">Library</a></li>
+                <li><a href="#social" class="nav-link" data-page="social">Social</a></li>
+                <li><a href="#audio" class="nav-link" data-page="audio">Audio</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="container-fluid px-4 py-5">
-        <div class="row justify-content-center">
-            <div class="col-12 col-xl-10">
-                <div class="d-flex flex-column gap-5">
-                    
-                    <!-- Study Streak Section -->
-                    <section class="bg-light rounded-4 p-4 p-md-5 border">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="flex-grow-1">
-                                <div class="d-flex align-items-center gap-2 text-muted mb-3">
-                                    <span>Daily Study Streak</span>
-                                    <i data-lucide="chevron-right"></i>
-                                </div>
-                                <h2 class="h4 h-md-3 fw-semibold d-flex align-items-center gap-2 flex-wrap">
-                                    You've read 2 days in a row! 👏
-                                </h2>
-                            </div>
-                            <div class="text-end">
-                                <div class="display-6 fw-bold d-flex align-items-center gap-1">
-                                    2 🔥
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Today's Devotional Card -->
-                    <section class="position-relative overflow-hidden rounded-4 border" style="background: linear-gradient(135deg, #0101a8, #0101c8);">
-                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: url('/images/abstract-background.png'); background-size: cover; background-position: center; opacity: 0.15;"></div>
-                        <div class="position-relative p-4 p-md-5 text-white">
-                            <div class="d-flex justify-content-between align-items-center mb-4">
-                                <h3 class="text-white-50 mb-0">Today's Devotional</h3>
-                                <button class="btn btn-outline-light rounded-pill p-2">
-                                    <i data-lucide="bookmark"></i>
-                                </button>
-                            </div>
-                            <div class="row align-items-center g-4">
-                                <div class="col-lg-7">
-                                    <h2 class="display-5 fw-bold mb-4 text-white">
-                                        Your Role In Building His Church In Today's World
-                                    </h2>
-                                    <p class="text-white-75 mb-4 fs-5">
-                                        To be filled with the fullness of God means to be filled with the totality of the divine essence, His very nature and character...
-                                    </p>
-                                    <p class="text-white-75 fw-medium">Ephesians 6: 11-34</p>
-                                </div>
-                                <div class="col-lg-5">
-                                    <div class="d-flex flex-column gap-3">
-                                        <button class="btn btn-outline-light rounded-pill py-3">
-                                            <i data-lucide="play" class="me-2"></i>
-                                            Listen to devotion
-                                        </button>
-                                        <button class="btn btn-light text-primary rounded-pill py-3">
-                                            Read devotion
-                                            <i data-lucide="arrow-right" class="ms-2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Related Articles Section -->
-                    <section class="bg-white rounded-4 border overflow-hidden">
-                        <div class="d-flex justify-content-between align-items-center p-4 p-md-5 border-bottom">
-                            <div class="d-flex gap-4 overflow-auto">
-                                <button class="btn btn-link text-warning fw-medium border-bottom border-warning border-3 pb-3 text-decoration-none active-tab">
-                                    Related Articles
-                                </button>
-                                <button class="btn btn-link text-muted fw-medium pb-3 text-decoration-none">
-                                    Past Articles
-                                </button>
-                                <button class="btn btn-link text-muted fw-medium pb-3 text-decoration-none">
-                                    Saved Articles
-                                </button>
-                            </div>
-                            <div class="d-flex align-items-center gap-2">
-                                <i data-lucide="search" class="text-muted"></i>
-                                <span class="text-muted d-none d-sm-inline">Search</span>
-                            </div>
-                        </div>
-                        <div class="p-4 p-md-5">
-                            <div class="row g-4" id="articles-container">
-                                <!-- Articles will be populated by JavaScript -->
-                            </div>
-                            <div class="mt-4 pt-4 border-top">
-                                <button class="btn btn-outline-secondary w-100 rounded-3 py-3">
-                                    View all related articles
-                                    <i data-lucide="arrow-right" class="ms-2"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Rhapsody TV Section -->
-                    <section class="bg-light rounded-4 p-4 p-md-5 border position-relative overflow-hidden">
-                        <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10">
-                            <div class="position-absolute bg-secondary rounded-circle" style="width: 200px; height: 200px; top: -50px; left: -50px;"></div>
-                            <div class="position-absolute bg-secondary rounded-circle" style="width: 150px; height: 150px; bottom: -50px; right: -50px;"></div>
-                        </div>
-                        <div class="position-relative">
-                            <div class="d-flex justify-content-between align-items-center mb-4">
-                                <div>
-                                    <h3 class="h3 fw-semibold mb-1">Rhapsody TV</h3>
-                                    <p class="text-muted mb-0">Now showing</p>
-                                </div>
-                                <button class="btn btn-outline-secondary rounded-3">
-                                    See all
-                                    <i data-lucide="chevron-right" class="ms-1"></i>
-                                </button>
-                            </div>
-                            <div class="position-relative rounded-3 overflow-hidden bg-dark" style="aspect-ratio: 16/9;">
-                                <video id="rhapsody-video" class="w-100 h-100" style="object-fit: cover;" autoplay muted loop playsinline>
-                                    <!-- Video source will be set by JavaScript -->
-                                </video>
-                                <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-to-t from-dark"></div>
-                                <div class="position-absolute top-0 start-0 p-3 d-flex gap-2">
-                                    <span class="badge rounded-pill px-3 py-2" style="background-color: #DAA520; color: black;">
-                                        <i data-lucide="radio" class="me-1" style="width: 12px; height: 12px;"></i>
-                                        Live
-                                    </span>
-                                    <span class="badge bg-white bg-opacity-25 text-white rounded-pill px-3 py-2">
-                                        <i data-lucide="eye" class="me-1" style="width: 12px; height: 12px;"></i>
-                                        23k
-                                    </span>
-                                </div>
-                                <div class="position-absolute top-0 end-0 p-3">
-                                    <button class="btn btn-outline-light rounded-pill p-2" id="mute-toggle">
-                                        <i data-lucide="volume-x"></i>
-                                    </button>
-                                </div>
-                                <div class="position-absolute bottom-0 start-0 end-0 p-3 text-white">
-                                    <h3 class="h4 fw-bold mb-1">Global Communion Service</h3>
-                                    <p class="mb-0">With Pastor Chris</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Every Day Solutions -->
-                    <section class="bg-light rounded-4 p-4 p-md-5 border">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h3 class="h3 fw-semibold mb-0">Every day solutions!</h3>
-                            <button class="btn btn-outline-secondary rounded-3">See all</button>
-                        </div>
-                        <div class="overflow-auto">
-                            <div class="d-flex gap-4 pb-3" style="width: max-content;" id="solutions-container">
-                                <!-- Solutions will be populated by JavaScript -->
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- New & Popular Books -->
-                    <section class="bg-light rounded-4 p-4 p-md-5 border">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h3 class="h3 fw-semibold d-flex align-items-center gap-3 mb-0">
-                                <i data-lucide="book-open"></i>
-                                New & Popular books
-                            </h3>
-                            <button class="btn btn-outline-secondary rounded-3">See all</button>
-                        </div>
-                        <div class="overflow-auto">
-                            <div class="d-flex gap-4 pb-3" style="width: max-content;" id="books-container">
-                                <!-- Books will be populated by JavaScript -->
-                            </div>
-                        </div>
-                    </section>
-
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="home-page" class="page active">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2 class="hero-title">Your Daily Dose of Inspiration</h2>
+                    <p class="hero-subtitle">Connect with daily devotionals, audio teachings, and spiritual resources</p>
+                    <button class="btn btn-primary">Get Started</button>
                 </div>
+                <div class="hero-image">
+                    <img src="public/images/abstract-background.png" alt="Inspirational background">
+                </div>
+            </section>
+
+            <!-- Today's Devotional Card -->
+            <section class="devotional-card" style="background: linear-gradient(135deg, #0101A8 0%, #1e40af 100%); border-radius: 1.5rem; padding: 3rem 2rem; color: white; margin: 2rem 0;">
+                <div class="devotional-header">
+                    <h3>Today's Devotional</h3>
+                    <button class="btn-icon" aria-label="Save devotional">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="devotional-title">Your Role In Building His Church In Today's World</h4>
+                <p class="devotional-subtitle">For we are members of His body, of His flesh, and of His bones.</p>
+                <div class="devotional-reference">Ephesians 5:30</div>
+                <div class="devotional-actions">
+                    <button class="btn btn-light">Listen to devotion</button>
+                    <button class="btn btn-outline-light">Read devotion</button>
+                </div>
+            </section>
+
+            <!-- Rhapsody TV Section -->
+            <section class="tv-section">
+                <h3>Rhapsody TV</h3>
+                <div class="video-container">
+                    <video id="rhapsody-video" width="100%" height="auto" controls muted>
+                        <source src="https://test-streams.mux.dev/x36xhzz/x3 Lisboa.m3u8" type="application/x-mpegURL">
+                        Your browser does not support the video tag.
+                    </video>
+                    <button id="mute-toggle" class="mute-toggle" aria-label="Toggle mute">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="15.54" y1="8.46" x2="15.54" y2="15.54"></line>
+                        </svg>
+                    </button>
+                </div>
+                <p class="tv-description">Watch inspiring messages and teachings from Pastor Chris Oyakhilome</p>
+            </section>
+
+            <!-- Solutions Section -->
+            <section class="solutions-section">
+                <h3>Solutions for Every Day</h3>
+                <div class="solutions-grid" id="solutions-container">
+                    <!-- Solutions will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Popular Books Section -->
+            <section class="books-section">
+                <div class="section-header">
+                    <h3>New & Popular Books</h3>
+                    <button class="btn btn-secondary">See all</button>
+                </div>
+                <div class="books-scroll" id="books-container">
+                    <!-- Books will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Audio Section -->
+            <section class="audio-section">
+                <div class="section-header">
+                    <h3>Rhapsody Audio</h3>
+                    <button class="btn btn-secondary">See all</button>
+                </div>
+                <div class="audio-list" id="audio-container">
+                    <!-- Audio items will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Testimonies Section -->
+            <section class="testimonies-section">
+                <h3>Community Testimonies</h3>
+                <div class="testimonies-grid" id="testimonies-container">
+                    <!-- Testimonies will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <h2>Join Our Growing Community</h2>
+                <p>Get access to exclusive content and connect with millions of believers worldwide.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-gold">Subscribe Now</button>
+                    <button class="btn btn-outline">Learn More</button>
+                </div>
+            </section>
+        </section>
+
+        <!-- Solutions Page -->
+        <section id="solutions-page" class="page">
+            <h2>Solutions for Every Situation</h2>
+            <div class="solutions-grid-full" id="solutions-full">
+                <!-- Full solutions grid will be populated by JavaScript -->
             </div>
-        </div>
+        </section>
+
+        <!-- Store Page -->
+        <section id="store-page" class="page">
+            <h2>Rhapsody Store</h2>
+            <div class="store-grid" id="store-container">
+                <!-- Store items will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Library Page -->
+        <section id="library-page" class="page">
+            <h2>My Library</h2>
+            <div class="library-tabs">
+                <button class="tab-btn active" data-tab="all-purchases">All Purchases</button>
+                <button class="tab-btn" data-tab="downloaded">Downloaded</button>
+            </div>
+            <div class="library-content" id="library-container">
+                <!-- Library items will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Social Page -->
+        <section id="social-page" class="page">
+            <h2>Community</h2>
+            <div class="social-feed" id="social-container">
+                <!-- Social posts will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Audio Page -->
+        <section id="audio-page" class="page">
+            <h2>Rhapsody Audio</h2>
+            <div class="audio-full-list" id="audio-full-container">
+                <!-- Full audio list will be populated by JavaScript -->
+            </div>
+        </section>
     </main>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JavaScript -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Rhapsody. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

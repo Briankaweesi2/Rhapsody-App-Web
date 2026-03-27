@@ -5,12 +5,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { SectionSwitcher, type Section } from "@/components/section-switcher"
+import { useSection } from "@/components/section-context"
 import {
   Menu,
   X,
   Search,
   ShoppingCart,
-  RefreshCw,
   Home,
   Lightbulb,
   Store,
@@ -25,6 +26,7 @@ interface TopNavigationProps {
 
 export function TopNavigation({ currentPage = "home" }: TopNavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { currentSection, setCurrentSection } = useSection()
 
   const navigationItems = [
     { label: "Home", href: "/", key: "home", icon: Home },
@@ -40,7 +42,7 @@ export function TopNavigation({ currentPage = "home" }: TopNavigationProps) {
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo and Brand */}
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex items-center gap-2 lg:gap-3 flex-shrink-0">
             <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden ring-2 ring-[#DAA520]/20">
               <Image
                 src="/placeholder.svg?height=48&width=48&text=Logo"
@@ -50,12 +52,14 @@ export function TopNavigation({ currentPage = "home" }: TopNavigationProps) {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-xl lg:text-2xl font-bold text-foreground hidden sm:block">Adult's Rhapsody</h1>
+            <div className="flex items-center gap-1 lg:gap-2">
+              <div className="hidden sm:block">
+                <SectionSwitcher 
+                  currentSection={currentSection}
+                  onSectionChange={setCurrentSection}
+                />
+              </div>
               <h1 className="text-lg font-bold text-foreground sm:hidden">Rhapsody</h1>
-              <Button variant="ghost" size="sm" className="p-1 hidden sm:flex hover:bg-accent">
-                <RefreshCw className="w-4 h-4 lg:w-5 lg:h-5" />
-              </Button>
             </div>
           </div>
 

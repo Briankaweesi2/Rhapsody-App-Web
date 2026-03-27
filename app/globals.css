@@ -3,6 +3,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Font configuration */
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback', system-ui;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+}
+
 :root {
   --background: oklch(100% 0 0); /* Pure white */
   --foreground: oklch(15% 0 0); /* Very dark gray for text */

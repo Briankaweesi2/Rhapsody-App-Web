@@ -1,117 +1,899 @@
-/* Custom CSS for the devotional app */
+/* ========================================
+   VARIABLES & RESET
+   ======================================== */
 
 :root {
-  --primary-color: #0101a8;
-  --gold-color: #daa520;
-  --text-muted: #6c757d;
+    --primary-color: #0101A8;
+    --primary-dark: #0101c8;
+    --gold-color: #DAA520;
+    --text-dark: #1a1a1a;
+    --text-muted: #666666;
+    --border-color: #e9ecef;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Geist', system-ui, -apple-system, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
 }
 
-.bg-gradient-to-t {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
-.text-white-75 {
-  color: rgba(255, 255, 255, 0.75);
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
 }
 
-.text-white-50 {
-  color: rgba(255, 255, 255, 0.5);
+/* ========================================
+   NAVBAR
+   ======================================== */
+
+.navbar {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
 }
 
-.active-tab {
-  color: var(--gold-color) !important;
-  border-color: var(--gold-color) !important;
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.solution-card,
-.book-card {
-  min-width: 280px;
-  transition: transform 0.3s ease;
+.navbar-logo h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0;
 }
 
-.solution-card:hover,
-.book-card:hover {
-  transform: scale(1.05);
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
 }
 
-.book-card {
-  min-width: 160px;
+.nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    border-bottom: 3px solid transparent;
 }
 
-.book-card img {
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--gold-color);
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, #f0f4ff 0%, #f5f7fa 100%);
+    border-radius: 2rem;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+/* ========================================
+   DEVOTIONAL CARD
+   ======================================== */
+
+.devotional-card {
+    margin: 3rem 0;
+}
+
+.devotional-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.devotional-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.btn-icon:hover {
+    opacity: 0.8;
+}
+
+.devotional-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: white;
+}
+
+.devotional-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.devotional-reference {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+}
+
+.devotional-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   VIDEO SECTION
+   ======================================== */
+
+.tv-section {
+    margin: 4rem 0;
+}
+
+.tv-section h3 {
+    margin-bottom: 1.5rem;
+}
+
+.video-container {
+    position: relative;
+    background: #000;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+}
+
+.mute-toggle {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.mute-toggle:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.tv-description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   SOLUTIONS SECTION
+   ======================================== */
+
+.solutions-section,
+.solutions-grid-full {
+    margin: 4rem 0;
+}
+
+.solutions-section h3,
+.solutions-grid-full h2 {
+    margin-bottom: 2rem;
+}
+
+.solutions-grid,
+.solutions-grid-full {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.solution-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.solution-card:hover {
+    border-color: var(--gold-color);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
 }
 
 .solution-card img {
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    border-radius: 0.5rem;
 }
 
-/* Hide scrollbars but keep functionality */
-.overflow-auto::-webkit-scrollbar {
-  display: none;
+.solution-card h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
-.overflow-auto {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.solution-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
 }
 
-/* Rounded buttons */
+/* ========================================
+   BOOKS SECTION
+   ======================================== */
+
+.books-section,
+.audio-section {
+    margin: 4rem 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h3 {
+    margin: 0;
+}
+
+.books-scroll,
+.audio-list {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-behavior: smooth;
+}
+
+.books-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.books-scroll::-webkit-scrollbar-track {
+    background: var(--bg-light);
+    border-radius: 10px;
+}
+
+.books-scroll::-webkit-scrollbar-thumb {
+    background: var(--gold-color);
+    border-radius: 10px;
+}
+
+.book-card {
+    flex: 0 0 200px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.book-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.book-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.book-content {
+    padding: 1rem;
+}
+
+.book-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.book-author {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.book-price {
+    color: var(--gold-color);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.book-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* ========================================
+   AUDIO SECTION
+   ======================================== */
+
+.audio-list {
+    flex-direction: column;
+    overflow-x: visible;
+}
+
+.audio-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.audio-item:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--gold-color);
+}
+
+.audio-thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.audio-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.audio-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.audio-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text-dark);
+}
+
+.audio-day {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.play-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* ========================================
+   TESTIMONIES SECTION
+   ======================================== */
+
+.testimonies-section {
+    margin: 4rem 0;
+}
+
+.testimonies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimony-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.testimony-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.testimony-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.testimony-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.testimony-meta {
+    flex: 1;
+}
+
+.testimony-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-dark);
+}
+
+.testimony-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.testimony-content {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.testimony-actions {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.testimony-action {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+    padding: 0;
+}
+
+.testimony-action:hover {
+    color: var(--gold-color);
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.cta-section h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
 .btn {
-  border-radius: 0.75rem !important;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
-.rounded-pill {
-  border-radius: 50rem !important;
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
 }
 
-.rounded-3 {
-  border-radius: 0.75rem !important;
+.btn-primary:hover {
+    background: var(--primary-dark);
 }
 
-.rounded-4 {
-  border-radius: 1rem !important;
+.btn-secondary {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
 }
 
-/* Gold button styling */
+.btn-secondary:hover {
+    border-color: var(--gold-color);
+    color: var(--gold-color);
+}
+
 .btn-gold {
-  background-color: var(--gold-color);
-  border-color: var(--gold-color);
-  color: black;
-  font-weight: 500;
+    background: var(--gold-color);
+    color: var(--text-dark);
 }
 
 .btn-gold:hover {
-  background-color: #b8941c;
-  border-color: #b8941c;
-  color: black;
+    background: #c49417;
+    transform: translateY(-2px);
 }
 
-/* Video container */
-video {
-  width: 100%;
-  height: 100%;
+.btn-light {
+    background: white;
+    color: var(--primary-color);
+    border: none;
 }
 
-/* Responsive adjustments */
+.btn-light:hover {
+    background: var(--bg-light);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline-light {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   LIBRARY PAGE
+   ======================================== */
+
+.library-tabs {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--gold-color);
+}
+
+.library-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.library-item:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.library-thumbnail {
+    width: 100px;
+    height: 140px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.library-content {
+    flex: 1;
+}
+
+.library-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.library-author {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.library-price {
+    font-weight: 700;
+    color: var(--gold-color);
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background: var(--text-dark);
+    color: white;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--gold-color);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
 @media (max-width: 768px) {
-  .container-fluid {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+    .navbar-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-  .display-5 {
-    font-size: 2rem;
-  }
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-  .solution-card,
-  .book-card {
-    min-width: 250px;
-  }
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.75rem;
+    }
+
+    .devotional-title {
+        font-size: 1.5rem;
+    }
+
+    .solutions-grid,
+    .solutions-grid-full {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .books-scroll {
+        flex-wrap: wrap;
+        overflow-x: auto;
+    }
+
+    .book-card {
+        flex: 0 0 calc(50% - 0.75rem);
+    }
+
+    .testimonies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .audio-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .library-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .library-thumbnail {
+        width: 100%;
+        height: 150px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
 }

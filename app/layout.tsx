@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { ThemeProvider } from '@/components/theme-provider'
+import { SectionProvider } from '@/components/section-context'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -16,15 +17,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning style={{ fontFamily: GeistSans.style.fontFamily }}>
       <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
       </head>
       <body className="min-h-screen bg-background text-foreground transition-colors duration-300">
         <ThemeProvider
@@ -33,7 +27,9 @@ html {
           enableSystem
           disableTransitionOnChange={false}
         >
-          {children}
+          <SectionProvider>
+            {children}
+          </SectionProvider>
         </ThemeProvider>
       </body>
     </html>
