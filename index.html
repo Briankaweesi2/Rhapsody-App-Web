@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rhapsody - Your daily devotional and spiritual content platform">
+    <title>Rhapsody - Daily Devotionals & Spiritual Content</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <h1>Rhapsody</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#solutions" class="nav-link" data-page="solutions">Solutions</a></li>
+                <li><a href="#store" class="nav-link" data-page="store">Store</a></li>
+                <li><a href="#library" class="nav-link" data-page="library">Library</a></li>
+                <li><a href="#social" class="nav-link" data-page="social">Social</a></li>
+                <li><a href="#audio" class="nav-link" data-page="audio">Audio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="home-page" class="page active">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2 class="hero-title">Your Daily Dose of Inspiration</h2>
+                    <p class="hero-subtitle">Connect with daily devotionals, audio teachings, and spiritual resources</p>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+                <div class="hero-image">
+                    <img src="public/images/abstract-background.png" alt="Inspirational background">
+                </div>
+            </section>
+
+            <!-- Today's Devotional Card -->
+            <section class="devotional-card" style="background: linear-gradient(135deg, #0101A8 0%, #1e40af 100%); border-radius: 1.5rem; padding: 3rem 2rem; color: white; margin: 2rem 0;">
+                <div class="devotional-header">
+                    <h3>Today's Devotional</h3>
+                    <button class="btn-icon" aria-label="Save devotional">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="devotional-title">Your Role In Building His Church In Today's World</h4>
+                <p class="devotional-subtitle">For we are members of His body, of His flesh, and of His bones.</p>
+                <div class="devotional-reference">Ephesians 5:30</div>
+                <div class="devotional-actions">
+                    <button class="btn btn-light">Listen to devotion</button>
+                    <button class="btn btn-outline-light">Read devotion</button>
+                </div>
+            </section>
+
+            <!-- Rhapsody TV Section -->
+            <section class="tv-section">
+                <h3>Rhapsody TV</h3>
+                <div class="video-container">
+                    <video id="rhapsody-video" width="100%" height="auto" controls muted>
+                        <source src="https://test-streams.mux.dev/x36xhzz/x3 Lisboa.m3u8" type="application/x-mpegURL">
+                        Your browser does not support the video tag.
+                    </video>
+                    <button id="mute-toggle" class="mute-toggle" aria-label="Toggle mute">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="15.54" y1="8.46" x2="15.54" y2="15.54"></line>
+                        </svg>
+                    </button>
+                </div>
+                <p class="tv-description">Watch inspiring messages and teachings from Pastor Chris Oyakhilome</p>
+            </section>
+
+            <!-- Solutions Section -->
+            <section class="solutions-section">
+                <h3>Solutions for Every Day</h3>
+                <div class="solutions-grid" id="solutions-container">
+                    <!-- Solutions will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Popular Books Section -->
+            <section class="books-section">
+                <div class="section-header">
+                    <h3>New & Popular Books</h3>
+                    <button class="btn btn-secondary">See all</button>
+                </div>
+                <div class="books-scroll" id="books-container">
+                    <!-- Books will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Audio Section -->
+            <section class="audio-section">
+                <div class="section-header">
+                    <h3>Rhapsody Audio</h3>
+                    <button class="btn btn-secondary">See all</button>
+                </div>
+                <div class="audio-list" id="audio-container">
+                    <!-- Audio items will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Testimonies Section -->
+            <section class="testimonies-section">
+                <h3>Community Testimonies</h3>
+                <div class="testimonies-grid" id="testimonies-container">
+                    <!-- Testimonies will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <h2>Join Our Growing Community</h2>
+                <p>Get access to exclusive content and connect with millions of believers worldwide.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-gold">Subscribe Now</button>
+                    <button class="btn btn-outline">Learn More</button>
+                </div>
+            </section>
+        </section>
+
+        <!-- Solutions Page -->
+        <section id="solutions-page" class="page">
+            <h2>Solutions for Every Situation</h2>
+            <div class="solutions-grid-full" id="solutions-full">
+                <!-- Full solutions grid will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Store Page -->
+        <section id="store-page" class="page">
+            <h2>Rhapsody Store</h2>
+            <div class="store-grid" id="store-container">
+                <!-- Store items will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Library Page -->
+        <section id="library-page" class="page">
+            <h2>My Library</h2>
+            <div class="library-tabs">
+                <button class="tab-btn active" data-tab="all-purchases">All Purchases</button>
+                <button class="tab-btn" data-tab="downloaded">Downloaded</button>
+            </div>
+            <div class="library-content" id="library-container">
+                <!-- Library items will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Social Page -->
+        <section id="social-page" class="page">
+            <h2>Community</h2>
+            <div class="social-feed" id="social-container">
+                <!-- Social posts will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Audio Page -->
+        <section id="audio-page" class="page">
+            <h2>Rhapsody Audio</h2>
+            <div class="audio-full-list" id="audio-full-container">
+                <!-- Full audio list will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Rhapsody. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
