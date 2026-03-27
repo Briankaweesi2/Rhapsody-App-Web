@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { ThemeProvider } from '@/components/theme-provider'
+import { SectionProvider } from '@/components/section-context'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -26,7 +27,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          {children}
+          <SectionProvider>
+            {children}
+          </SectionProvider>
         </ThemeProvider>
       </body>
     </html>
